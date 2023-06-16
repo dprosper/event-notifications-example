@@ -17,11 +17,7 @@ router.get("/", async (req, res) => {
 
 require("dotenv").config();
 
-const apikey = process.env.api_key;
-const eventNotificationsHost = `${process.env.instance_location}.event-notifications.cloud.ibm.com/event-notifications/v1/instances/${process.env.instance_guid}`;
-const apiSourceName = `${process.env.api_source_name}`;
-const apiSourceId = `${process.env.api_source_id}`;
-const appEventId = "0001";
+const appGeneratedEventId = "0001";
 
 router.get("/custom_notification", async (req, res) => {
   let notificationId = "<not found>";
@@ -30,7 +26,7 @@ router.get("/custom_notification", async (req, res) => {
       "https://iam.cloud.ibm.com/identity/token",
       {
         grant_type: "urn:ibm:params:oauth:grant-type:apikey",
-        apikey: `${apikey}`,
+        apikey: `${process.env.api_key}`,
       },
       {
         headers: {
@@ -41,16 +37,15 @@ router.get("/custom_notification", async (req, res) => {
     )
     .then((response) => {
       let tokenObject = response.data;
-      console.log(tokenObject.access_token);
 
       axios({
-        url: `https://${eventNotificationsHost}/notifications`,
+        url: `https://${process.env.instance_location}.event-notifications.cloud.ibm.com/event-notifications/v1/instances/${process.env.instance_guid}/notifications`,
         method: "post",
         data: {
           ibmenseverity: "HIGH",
-          id: `${appEventId}`,
-          source: `${apiSourceName}`,
-          ibmensourceid: `${apiSourceId}`,
+          id: `${appGeneratedEventId}`,
+          source: `${process.env.api_source_name}`,
+          ibmensourceid: `${process.env.api_source_id}`,
           type: "*",
           ibmensubject: "Someone used the custom_notification endpoint.",
           ibmendefaultshort: "Someone used the custom_notification endpoint.",
@@ -65,8 +60,6 @@ router.get("/custom_notification", async (req, res) => {
         },
       })
         .then((response) => {
-          console.log("Status Code:", response.status);
-          console.log(response.data);
           notificationId = response.data.notification_id;
         })
         .catch((err) => {
