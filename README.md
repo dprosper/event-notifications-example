@@ -4,7 +4,7 @@
 
 You must have a Pay-as-You-Go account in IBM Cloud&trade; to follow the steps in this repository to create resources. Since the costs for these resources will vary, use the [Cost Estimator](https://cloud.ibm.com/estimator/review) to generate a cost estimate based on your projected usage.
 
-In addition to having an existing VPC in IBM Cloud and configured VPC Flow Logs, this project requires the provisioning of an instance of Databases for Elasticsearch. Make sure to delete services when they are no longer required in order to not incur charges in your account.
+Make sure to delete services when they are no longer required in order to not incur charges in your account.
 
 
 ## Getting Started
