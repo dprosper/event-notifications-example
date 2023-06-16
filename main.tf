@@ -176,7 +176,7 @@ resource "ibm_cos_bucket" "api_notifications_bucket" {
 
 resource "ibm_en_destination_cos" "cos_en_destination" {
   instance_guid = ibm_resource_instance.event_notifications.guid
-  name          = "app-events-cos-subscription"
+  name          = "app-events-cos-destrination"
   type          = "ibmcos"
   description   = "IBM Cloud Object Storage Destination for event notification"
   config {
@@ -190,8 +190,8 @@ resource "ibm_en_destination_cos" "cos_en_destination" {
 
 resource "ibm_en_subscription_cos" "cos_subscription" {
   instance_guid    = ibm_resource_instance.event_notifications.guid
-  name             = "IBM COS Subscription"
-  description      = "IBM Cloud Object Storage destination subscription for Event Notification"
+  name             = "app-events-cos-subscription"
+  description      = "IBM Cloud Object Storage subscription for Event Notification"
   destination_id   = ibm_en_destination_cos.cos_en_destination.destination_id
   topic_id         = ibm_en_topic.topic.topic_id
 }
