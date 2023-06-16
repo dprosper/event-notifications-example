@@ -66,6 +66,8 @@ If you need to update the app later on you can use the following command:
 
 **TEST POINT  #2**: Shortly after having access that endpoint, you can check the COS bucket that was created and you should find a new folder that contains the payload from the event. 
 
+![cos-bucket](./diagrams/cos-bucket.png)
+
 5. Delete the Code Engine Project. 
 
   ```sh
