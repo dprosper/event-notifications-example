@@ -6,6 +6,9 @@ You must have a Pay-as-You-Go account in IBM Cloud&trade; to follow the steps in
 
 Make sure to delete services when they are no longer required in order to not incur charges in your account.
 
+- Install the following tools as they are needed: 
+  - [IBM Cloud CLI](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-tutorials)
+  - [Terraform](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-tutorials)
 
 ## Getting Started as the Infrastructure Engineer
 
@@ -25,11 +28,17 @@ Make sure to delete services when they are no longer required in order to not in
     source .env
 ```
 
-4. Run Terraform to create and configure the environment.
+5. Run Terraform init to download the required providers. 
+```sh
+    terraform init
+```
+
+6. Run Terraform to create and configure the environment.
 ```sh
     terraform apply
 ```
-5. As a result of running the apply, you will receive two email messages and two SMS messages asking you to confirm subscription to two topics. You must confirm the subscriptions for the two emails and the two SMS messages, i.e. a total of four confirmations. 
+
+7. As a result of running the apply, you will receive two email messages and two SMS messages asking you to confirm subscription to two topics. You must confirm the subscriptions for the two emails and the two SMS messages, i.e. a total of four confirmations. 
 
 The Event Notifications and Cloud Object Storage will be created and configured. A new file will be created in the directory called `.apply.output.env` and will be needed when you take the persona of the developer.
 
