@@ -117,8 +117,8 @@ resource "ibm_en_subscription_email" "lifecycle_subscription_email" {
   }
 }
 
-module "restapi_helper" {
-  source = "./modules/restapi-helper"
+module "enable_lifecycle_events_helper" {
+  source = "./modules/enable-lifecycle-events-helper"
 
   ibmcloud_iam_access_token              = data.ibm_iam_auth_token.tokendata.iam_access_token
   ibmcloud_event_notifications_guid      = ibm_resource_instance.event_notifications.guid
