@@ -8,6 +8,7 @@ Make sure to delete services when they are no longer required in order to not in
 
 - Install the following tools as they are needed: 
   - [IBM Cloud CLI](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-tutorials)
+  - [Code Engine CLI Plugin](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-tutorials)
   - [Terraform](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-tutorials)
 
 ## Getting Started as the Infrastructure Engineer
@@ -54,7 +55,7 @@ The Event Notifications and Cloud Object Storage will be created and configured.
     ibmcloud ce project create --name $TF_VAR_resources_prefix-project
 ```
 
-**TEST POINT  #1**: Shortly after having initiated that command, you will receive email and SMS messages notifying you that a new Code Engine project was created in your account.
+**TEST POINT  #1**: Shortly after having initiated that command, you will receive email and SMS messages notifying you that a new Code Engine project was created in your account. If you don't receive either or both, make sure you confirmed (accepted) the subscriptions. The Event Notifications UI can also be used for that. Navigate to the https://cloud.ibm.com/resources and expand the `Developer tools` section. Click on the Event Notifications instance and navigate to the Subscriptions section. Edit a subscription to view the Pending and Active invitations.
 
 3. Create a secret called `apply-output` based on the `.apply.output.env` that was created earlier after running the `terraform apply`.
   ```sh
