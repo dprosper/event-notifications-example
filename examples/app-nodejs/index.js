@@ -21,6 +21,7 @@ const apikey = process.env.api_key;
 const eventNotificationsHost = `${process.env.instance_location}.event-notifications.cloud.ibm.com/event-notifications/v1/instances/${process.env.instance_guid}`;
 const apiSourceName = `${process.env.api_source_name}`;
 const apiSourceId = `${process.env.api_source_id}`;
+const appEventId = "0001";
 
 router.get("/custom_notification", async (req, res) => {
   let notificationId = "<not found>";
@@ -47,7 +48,7 @@ router.get("/custom_notification", async (req, res) => {
         method: "post",
         data: {
           ibmenseverity: "HIGH",
-          id: "0001",
+          id: `${appEventId}`,
           source: `${apiSourceName}`,
           ibmensourceid: `${apiSourceId}`,
           type: "*",
@@ -57,7 +58,6 @@ router.get("/custom_notification", async (req, res) => {
           specversion: "1.0",
           datacontenttype: "application/json",
         },
-        // timeout: DEFAULT_TIMEOUT,
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
