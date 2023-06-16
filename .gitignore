@@ -1,0 +1,11 @@
+config.json
+*.tfstate
+*.tfstate.backup
+*.tfstate.lock.info
+*.tfvars
+*.plan
+.terraform
+.terraform.lock.hcl
+.env
+.apply.output.env
+local/
