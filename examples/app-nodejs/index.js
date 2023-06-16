@@ -18,6 +18,10 @@ router.get("/", async (req, res) => {
 require("dotenv").config();
 
 const appGeneratedEventId = "0001";
+const appEventSeverity = "HIGH";
+const appEventSubject = "Someone used the custom_notification endpoint.";
+const appEventShort = "Someone used the custom_notification endpoint.";
+const appEventLong = "Someone used the custom_notification endpoint.";
 
 router.get("/custom_notification", async (req, res) => {
   let notificationId = "<not found>";
@@ -26,7 +30,7 @@ router.get("/custom_notification", async (req, res) => {
       "https://iam.cloud.ibm.com/identity/token",
       {
         grant_type: "urn:ibm:params:oauth:grant-type:apikey",
-        apikey: `${process.env.api_key}`,
+        apikey: process.env.api_key,
       },
       {
         headers: {
@@ -42,14 +46,14 @@ router.get("/custom_notification", async (req, res) => {
         url: `https://${process.env.instance_location}.event-notifications.cloud.ibm.com/event-notifications/v1/instances/${process.env.instance_guid}/notifications`,
         method: "post",
         data: {
-          ibmenseverity: "HIGH",
-          id: `${appGeneratedEventId}`,
-          source: `${process.env.api_source_name}`,
-          ibmensourceid: `${process.env.api_source_id}`,
+          ibmenseverity: appEventSeverity,
+          id: appGeneratedEventId,
+          source: process.env.api_source_name,
+          ibmensourceid: process.env.api_source_id,
           type: "*",
-          ibmensubject: "Someone used the custom_notification endpoint.",
-          ibmendefaultshort: "Someone used the custom_notification endpoint.",
-          ibmendefaultlong: "Someone used the custom_notification endpoint.",
+          ibmensubject: appEventSubject,
+          ibmendefaultshort: appEventShort,
+          ibmendefaultlong: appEventLong,
           specversion: "1.0",
           datacontenttype: "application/json",
         },
