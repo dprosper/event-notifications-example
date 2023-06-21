@@ -1,7 +1,7 @@
 
 ![architecture](./diagrams/event-notifications.svg)
 
-This repository is associated with the following blog post: 
+This repository is associated with the following blog post: https://www.ibm.com/blog/using-event-notifications-in-your-deployed-solutions/
 
 ## Costs and Requirements
 
