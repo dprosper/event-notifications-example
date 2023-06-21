@@ -1,6 +1,8 @@
 
 ![architecture](./diagrams/event-notifications.svg)
 
+This repository is associated with the following blog post: 
+
 ## Costs and Requirements
 
 You must have a Pay-as-You-Go account in IBM Cloud&trade; to follow the steps in this repository to create resources. Since the costs for these resources will vary, use the [Cost Estimator](https://cloud.ibm.com/estimator/review) to generate a cost estimate based on your projected usage.
@@ -92,7 +94,7 @@ If you need to update the app later on you can use the following command:
 
 1. Run Terraform to delete the environment.
 ```sh
-    terraform delete
+    terraform destroy
 ```
 
 ## Issues
