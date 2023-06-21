@@ -1,4 +1,5 @@
 
+![architecture](./diagrams/event-notifications.svg)
 
 ## Costs and Requirements
 
